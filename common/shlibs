@@ -689,7 +689,7 @@ libboost_python27.so.1.72.0 boost-python1.72-1.72.0_1
 libboost_python38.so.1.72.0 boost-python3-1.72-1.72.0_1
 libexempi.so.8 exempi-2.5.0_1
 libatasmart.so.4 libatasmart-0.17_1
-libsgutils2.so.2 libsgutils-1.42_1
+libsgutils2-1.45.so.2 libsgutils-1.45_1
 liblvm2app.so.2.2 liblvm2app-2.02.54_1
 libcpufreq.so.0 libcpufreq-007_1
 libcpuid.so.14 libcpuid-0.4.0_1
@@ -3402,8 +3402,8 @@ libfifechan_opengl.so.0.1.5 fifechan-0.1.5_1
 libpolyclipping.so.22 clipper-6.4.2_1
 libSoapySDR.so.0.7 SoapySDR-0.7.0_1
 libeditorconfig.so.0 editorconfig-0.12.2_1
-libkid3-core.so.3.8.0 kid3-3.8.0_1
-libkid3-gui.so.3.8.0 kid3-3.8.0_1
+libkid3-core.so.3.8.2 kid3-3.8.2_1
+libkid3-gui.so.3.8.2 kid3-3.8.2_1
 libcfitsio.so.8 cfitsio-3.470_2
 libapparmor.so.1 libapparmor-2.12.0_1
 libgsettings-qt.so.1 gsettings-qt-0.1+17.10.20170824_1
@@ -3845,3 +3845,4 @@ libblosc.so.1 c-blosc-1.17.1_1
 libopenvdb.so.7.0 openvdb-7.0.0_1
 libAlembic.so.1.7 alembic-1.7.12_1
 libfacter.so.3.14.8 facter-3.14.8_1
+libmodsecurity.so.3 modsecurity-3.0.4_1
