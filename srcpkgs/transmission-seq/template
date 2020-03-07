@@ -1,31 +1,36 @@
-# Template file for 'transmission'
-pkgname=transmission
+# Template file for 'transmission-seq'
+pkgname=transmission-seq
 version=2.94
-revision=4
+revision=1
+wrksrc="transmission-${version}-seq"
 build_style=gnu-configure
 configure_args="--enable-nls --enable-cli --enable-daemon --enable-utp
  --without-systemd-daemon"
-hostmakedepends="intltool pkg-config"
+hostmakedepends="intltool pkg-config autoconf automake libtool"
 makedepends="dbus-glib-devel gtk+3-devel libcurl-devel libevent-devel
- qt5-tools-devel"
+ qt5-tools-devel gettext-devel glib-devel miniupnpc-devel"
 short_desc="Fast, easy and free BitTorrent client"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="MIT, GPL-2.0-or-later"
 homepage="https://www.transmissionbt.com"
-distfiles="https://github.com/transmission/transmission-releases/raw/master/${pkgname}-${version}.tar.xz"
-checksum=35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d
-conflicts="transmission-seq"
+distfiles="https://github.com/Mikayex/transmission/archive/${version}-seq.tar.gz"
+checksum=220ba1b500d13c36ed1e55e90bb2c3d6d4babddcae3b7df08a374617af1b5670
+conflicts="transmission"
 
 # Create transmission system user/group
 system_accounts="transmission"
 transmission_homedir="/var/lib/transmission"
 make_dirs="/var/lib/transmission 0755 transmission transmission"
-subpackages="transmission-gtk"
+subpackages="transmission-gtk-seq"
 
 if [ -z "$CROSS_BUILD" ]; then
 	makedepends+=" qt5-devel"
-	subpackages+=" transmission-qt"
+	subpackages+=" transmission-qt-seq"
 fi
+
+do_configure() {
+	./autogen.sh --prefix=/usr ${configure_args}
+}
 
 post_configure() {
 	# Add missing includes which happen as side-effects with glibc
@@ -69,8 +74,8 @@ post_install() {
 	vlicense COPYING
 }
 
-transmission-qt_package() {
-	conflicts="transmission-qt-seq"
+transmission-qt-seq_package() {
+	conflicts="transmission-qt"
 	depends="${sourcepkg}>=${version}_${revision} desktop-file-utils"
 	short_desc+=" - Qt frontend"
 	pkg_install() {
@@ -83,8 +88,8 @@ transmission-qt_package() {
 	}
 }
 
-transmission-gtk_package() {
-	conflicts="transmission-gtk-seq"
+transmission-gtk-seq_package() {
+	conflicts="transmission-gtk"
 	depends="${sourcepkg}>=${version}_${revision} hicolor-icon-theme desktop-file-utils"
 	short_desc+=" - GTK+ frontend"
 	pkg_install() {
