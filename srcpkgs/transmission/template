@@ -14,6 +14,7 @@ license="MIT, GPL-2.0-or-later"
 homepage="https://www.transmissionbt.com"
 distfiles="https://github.com/transmission/transmission-releases/raw/master/${pkgname}-${version}.tar.xz"
 checksum=35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d
+conflicts="transmission-seq"
 
 # Create transmission system user/group
 system_accounts="transmission"
@@ -69,6 +70,7 @@ post_install() {
 }
 
 transmission-qt_package() {
+	conflicts="transmission-qt-seq"
 	depends="${sourcepkg}>=${version}_${revision} desktop-file-utils"
 	short_desc+=" - Qt frontend"
 	pkg_install() {
@@ -82,6 +84,7 @@ transmission-qt_package() {
 }
 
 transmission-gtk_package() {
+	conflicts="transmission-gtk-seq"
 	depends="${sourcepkg}>=${version}_${revision} hicolor-icon-theme desktop-file-utils"
 	short_desc+=" - GTK+ frontend"
 	pkg_install() {
