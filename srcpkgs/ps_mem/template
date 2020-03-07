@@ -1,0 +1,18 @@
+# Template file for 'ps_mem'
+pkgname=ps_mem
+version=3.13
+revision=1
+archs=noarch
+depends="python"
+short_desc="List processes by memory usage"
+maintainer="whoami <whoami@systemli.org>"
+license="LGPL-2.1-or-later"
+homepage="https://github.com/pixelb/ps_mem"
+distfiles="https://github.com/pixelb/ps_mem/archive/v${version}.tar.gz>${pkgname}-${version}.tgz"
+checksum=9d556556ad1b16b19572c8edfd7ce4b305d6408605df343f407c2a25a1fe85ae
+
+do_install() {
+	vbin ps_mem.py ps_mem
+	vdoc README.md
+	vman ps_mem.1
+}
