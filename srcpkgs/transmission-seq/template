@@ -21,11 +21,11 @@ conflicts="transmission"
 system_accounts="transmission"
 transmission_homedir="/var/lib/transmission"
 make_dirs="/var/lib/transmission 0755 transmission transmission"
-subpackages="transmission-gtk-seq"
+subpackages="transmission-seq-gtk"
 
 if [ -z "$CROSS_BUILD" ]; then
 	makedepends+=" qt5-devel"
-	subpackages+=" transmission-qt-seq"
+	subpackages+=" transmission-seq-qt"
 fi
 
 do_configure() {
@@ -74,7 +74,7 @@ post_install() {
 	vlicense COPYING
 }
 
-transmission-qt-seq_package() {
+transmission-seq-qt_package() {
 	conflicts="transmission-qt"
 	depends="${sourcepkg}>=${version}_${revision} desktop-file-utils"
 	short_desc+=" - Qt frontend"
@@ -88,7 +88,7 @@ transmission-qt-seq_package() {
 	}
 }
 
-transmission-gtk-seq_package() {
+transmission-seq-gtk_package() {
 	conflicts="transmission-gtk"
 	depends="${sourcepkg}>=${version}_${revision} hicolor-icon-theme desktop-file-utils"
 	short_desc+=" - GTK+ frontend"

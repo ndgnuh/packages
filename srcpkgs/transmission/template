@@ -70,7 +70,7 @@ post_install() {
 }
 
 transmission-qt_package() {
-	conflicts="transmission-qt-seq"
+	conflicts="transmission-seq-qt"
 	depends="${sourcepkg}>=${version}_${revision} desktop-file-utils"
 	short_desc+=" - Qt frontend"
 	pkg_install() {
@@ -84,7 +84,7 @@ transmission-qt_package() {
 }
 
 transmission-gtk_package() {
-	conflicts="transmission-gtk-seq"
+	conflicts="transmission-seq-gtk"
 	depends="${sourcepkg}>=${version}_${revision} hicolor-icon-theme desktop-file-utils"
 	short_desc+=" - GTK+ frontend"
 	pkg_install() {
